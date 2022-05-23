@@ -1,0 +1,15 @@
+{
+  "name": "zetta-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "zetta": "^1.5.1",
+    "zetta-led-mock-driver": "^0.10.0"
+  }
+}

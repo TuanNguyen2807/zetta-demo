@@ -1,0 +1,38 @@
+
+<form class="pure-form pure-form-stacked">
+  <fieldset>
+    <legend># {{ action.name }}</legend>
+    
+    <!-- Handle single button and single input -->
+    <div ng-if="action.renderOptionsAsButton || action.renderOptionsAsMultipleInputs">
+
+      <div ng-repeat="field in action.inputFields">
+        <div class="fields" ng-if="!field.isHidden">
+<label ng-if="!field.isHidden && action.renderOptionsAsMultipleInputs" for="{{field.name}}">{{field.name}}</label>
+          <action-field value="field"></action-field>
+        </div>
+      </div>
+
+      <button class="pure-button {{ action.name + '-button' }}" ng-disabled="!action.available" ng-click="execute()">{{ action.name }}</button>
+    </div>
+
+
+    <!-- Handle double radio inputs as two buttons -->
+    <div ng-if="action.renderOptionsAsRadioButtons">
+      <button ng-repeat="val in action.radioField.value" class="pure-button {{ action.name + '-button' }}" ng-click="val.execute()">{{ val.title || val.value}}</button>
+    </div>
+
+  </fieldset>
+</form>
+
+<!--
+ <div class="field pure-u-1 pure-u-lg-3-4" ng-repeat="field in action.fields">
+    <div class="field" >
+          <input placeholder="{{ field.name }}" type="{{ field.type }}" class="pure-u-1" name="{{ field.name }}" value="{{ field.value }}"
+            id="{{ action.name + field.name }}" ng-model="field.value"/>
+    </div>
+  </div>
+  <div class="submit pure-u-1 pure-u-lg-1-4">
+    <button class="pure-button {{ action.name + '-button' }}" ng-click="execute()">{{ action.name }}</button>
+  </div>
+-->
